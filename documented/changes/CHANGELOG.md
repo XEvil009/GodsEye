@@ -12,3 +12,4 @@ Future changes must reference a Rule 10 Change ID.
 - GODSEYE-CHG-0001: Configured repository-local Git author name and private noreply email.
 - GODSEYE-CHG-0002: Corrected completed documentation and Git initialization checklist statuses.
 - GODSEYE-CHG-0003: Created public GitHub repository and configured local origin remote.
+- GODSEYE-CHG-0004: Published frozen architecture v1.0 and project documentation to public GitHub.

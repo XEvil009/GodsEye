@@ -66,3 +66,18 @@ Architecture changes require a new versioned baseline.
 - Verification: GitHub repository metadata and local remote verified.
 - Rollback: Remove origin with `git remote remove origin`; repository deletion requires a separate owner-approved action.
 - Status: Implemented and verified; initial push pending.
+
+
+## GODSEYE-CHG-0004 — Initial GitHub Publication
+
+- Date: 2026-11-20
+- Requester: Project owner
+- Previous state: Local commits existed; GitHub main branch had not been published.
+- New state: Both commits successfully pushed to public GitHub repository.
+- Reason: Publish the frozen architecture and project documentation.
+- Affected files: documented/13-github-gitlab.md, documented/17-development-progress.md, documented/15-change-management.md, documented/changes/CHANGELOG.md.
+- Dependencies/configuration: Git, GitHub CLI authentication, HTTPS remote.
+- Implementation: Pushed main and configured upstream tracking.
+- Verification: Remote main commit matched local commit 0e68c9b9f1c67e47d0b70128c49d0c452862304c.
+- Rollback: Revert the documentation record; any remote history change requires separate approval.
+- Status: Implemented and verified.

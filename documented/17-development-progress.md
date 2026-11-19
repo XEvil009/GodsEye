@@ -11,7 +11,7 @@ Architecture: Version 1.0 — FROZEN
 - [x] Local documentation initialization verified.
 - [x] Git repository initialized.
 - [x] GitHub repository created.
-- [ ] Architecture published to GitHub.
+- [x] Architecture published to GitHub.
 - [ ] Application implementation started.
 
 Current phase: Project foundation.
