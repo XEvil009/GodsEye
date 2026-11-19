@@ -81,3 +81,61 @@ Architecture changes require a new versioned baseline.
 - Verification: Remote main commit matched local commit 0e68c9b9f1c67e47d0b70128c49d0c452862304c.
 - Rollback: Revert the documentation record; any remote history change requires separate approval.
 - Status: Implemented and verified.
+
+## GODSEYE-CHG-0005 — Initialize Next.js TypeScript Web Workspace
+
+- Date: 2026-11-20
+- Requester: Project owner
+- Previous state: Repository contains the frozen architecture and project documentation; application source code has not been started.
+- Requested/new state: Initialize the Next.js web application workspace under apps/web using TypeScript and the approved Next.js Route Handlers architecture.
+- Reason and impact: Begin the backend and web implementation milestone while preserving Architecture v1.0. Establish the application workspace without introducing an independent backend framework.
+- Files affected: apps/web/**, package.json and required workspace configuration; documented/05-dependencies.md, documented/06-installation-log.md, documented/07-source-code-log.md, documented/12-testing-and-verification.md, documented/15-change-management.md, documented/17-development-progress.md, documented/changes/CHANGELOG.md.
+- Dependencies/configuration affected: Next.js, React, TypeScript and their required compatible dependencies; npm workspace configuration if required. Exact versions and installation details must be recorded before installation.
+- Implementation summary: Added root .gitignore protecting dependencies, build artifacts, logs and private environment files while preserving source manifests and .env.example.
+- Verification and test results: Pending.
+- Rollback procedure: Revert the implementation commit and remove only files introduced by this change. Preserve the frozen architecture and pre-existing documentation.
+- Status: VERIFIED.
+
+
+## GODSEYE-CHG-0006 — Permanent Termux Validation Utility
+
+- Date: 2026-11-20
+- Requester: Project owner
+- Previous state: TypeScript validation requires manual repository navigation and command execution.
+- New state: A reusable Bash validation utility with automatic repository-root detection and explicit exit-status reporting.
+- Reason and impact: Improve development verification reliability without modifying Architecture v1.0.
+- Files affected: scripts/validate.sh, documented/12-testing-and-verification.md, documented/15-change-management.md, documented/17-development-progress.md, documented/changes/CHANGELOG.md.
+- Dependencies/configuration affected: Existing Bash, Node.js and npm only. No new dependencies.
+- Implementation summary: Created scripts/validate.sh with automatic repository-root detection, npm workspace configuration checks, TypeScript execution and exit-status reporting.
+- Verification and test results: Pending.
+- Rollback procedure: Remove scripts/validate.sh and revert documentation changes associated with this change.
+- Status: VERIFIED.
+
+
+## GODSEYE-CHG-0007 — Git Ignore and Sensitive File Protection
+
+- Date: 2026-11-20
+- Requester: Project owner
+- Previous state: No root .gitignore file exists; node_modules is untracked.
+- Requested/new state: Add root Git ignore rules for generated dependencies, build output and private environment files while preserving source code and package manifests.
+- Reason and impact: Prevent accidental publication of generated files and secrets.
+- Files affected: .gitignore, documented/15-change-management.md, documented/changes/CHANGELOG.md.
+- Dependencies/configuration affected: Git ignore configuration only.
+- Implementation summary: Added root .gitignore protecting dependencies, build artifacts, logs and private environment files while preserving source manifests and .env.example.
+- Rollback procedure: Remove .gitignore and revert the associated documentation records.
+- Verification and test results: Strict git check-ignore tests passed for node_modules, TypeScript build artifacts and private environment files. Source manifests, validation script and .env.example remain trackable. git diff --check passed.
+- Status: VERIFIED.
+
+## GODSEYE-CHG-0008 — Use Webpack for Android ARM64 Production Builds
+
+- Date: 2026-11-20
+- Requester: Project owner
+- Previous state: The web workspace build script uses the default Next.js build bundler, which selects Turbopack and fails on Android ARM64 Termux because native bindings are unavailable.
+- Requested/new state: Configure the web workspace production build script to use `next build --webpack`.
+- Reason and impact: Enable verified production builds in the current Android ARM64 Termux development environment without changing application architecture or source code.
+- Files affected: apps/web/package.json, documented/05-dependencies.md, documented/12-testing-and-verification.md, documented/15-change-management.md, documented/17-development-progress.md, documented/changes/CHANGELOG.md.
+- Dependencies/configuration affected: Next.js build command only; no new dependency.
+- Implementation summary: Updated apps/web/package.json so the production build script uses `next build --webpack`. No dependencies or application source files were changed.
+- Verification and test results: Passed `npm run build` from the repository root. Next.js 16.4.6 compiled successfully with Webpack, completed TypeScript validation, collected page data, generated static pages and collected build traces. Routes `/` and `/_not-found` were prerendered successfully. Exit code: 0.
+- Rollback procedure: Restore the web workspace build script to `next build` and revert the associated documentation changes.
+- Status: VERIFIED.

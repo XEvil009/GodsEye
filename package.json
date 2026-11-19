@@ -1,0 +1,14 @@
+{
+  "name": "godseye",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=@godseye/web",
+    "build": "npm run build --workspace=@godseye/web",
+    "start": "npm run start --workspace=@godseye/web",
+    "typecheck": "npm run typecheck --workspace=@godseye/web"
+  }
+}
