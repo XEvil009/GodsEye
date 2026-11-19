@@ -10,5 +10,8 @@ Secondary GitLab owner: Xevilian
 GitHub is the authoritative source of truth.
 GitLab is the secondary synchronized repository.
 
-Repository creation and publication: PENDING.
+Repository creation: COMPLETE.
+Repository visibility: PUBLIC.
+Local origin remote: CONFIGURED.
+Architecture publication: PENDING.
 No successful push has been recorded.

@@ -51,3 +51,18 @@ Architecture changes require a new versioned baseline.
 - Verification: Pending.
 - Rollback: Restore the two checklist items to unchecked and revert this record.
 - Status: Implemented; verification pending.
+
+
+## GODSEYE-CHG-0003 — GitHub Repository Creation and Remote Configuration
+
+- Date: 2026-11-20
+- Requester: Project owner
+- Previous state: GitHub repository did not exist; local origin remote was not configured.
+- New state: Public repository XEvil009/GodsEye created and verified; local origin remote configured.
+- Reason: Establish the primary public source-control repository.
+- Affected files: documented/13-github-gitlab.md, documented/17-development-progress.md, documented/15-change-management.md, documented/changes/CHANGELOG.md.
+- Dependencies/configuration: GitHub CLI authentication; Git HTTPS remote.
+- Implementation: Created public GitHub repository and configured origin.
+- Verification: GitHub repository metadata and local remote verified.
+- Rollback: Remove origin with `git remote remove origin`; repository deletion requires a separate owner-approved action.
+- Status: Implemented and verified; initial push pending.
